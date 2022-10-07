@@ -14,7 +14,10 @@ app.get("/",(req, res) =>{
 })
 
 app.post("/upload", upload.single("file"), (req, res) =>{
-    res.send(hi)
+    const fileData = {
+        path: req.file.path,
+        originalName: req.file.originalname
+    }
 })
 
 app.listen(process.env.PORT)
